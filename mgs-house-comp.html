@@ -3957,6 +3957,16 @@
             text-decoration: none;
         }
 
+        .admin-login-link {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .admin-login-link {
+                display: none;
+            }
+        }
+
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .header-content {
@@ -5579,6 +5589,7 @@
         <footer class="footer">
             <p>MGS House Competition © 2025 | <a href="https://www.middleton.school.nz" target="_blank">Middleton Grange School</a></p>
             <p style="margin-top: 0.5rem;">30 Acacia Ave, Upper Riccarton, Christchurch 8041, New Zealand</p>
+            <p class="admin-login-link" style="margin-top: 0.75rem;"><a href="#" onclick="openAdminLogin(); return false;">Admin Login</a></p>
         </footer>
     </div>
 
@@ -6238,6 +6249,14 @@
         function closeLoginModal() {
             document.getElementById('loginModal').classList.remove('active');
             document.getElementById('adminPassword').value = '';
+        }
+
+        function openAdminLogin() {
+            if (!appData.isAdmin) {
+                openLoginModal();
+            } else {
+                toggleAdminPanel();
+            }
         }
 
         document.getElementById('loginForm').addEventListener('submit', (e) => {
