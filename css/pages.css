@@ -1,0 +1,598 @@
+/* =====================
+   PAGE-SPECIFIC STYLES
+   ===================== */
+
+/* Dashboard Layout */
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+}
+
+@media (max-width: 1100px) {
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* House of the Week */
+.hotw-card {
+    background: linear-gradient(135deg, var(--accent-snow) 0%, var(--bg-card) 100%);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--accent-ice);
+    position: relative;
+    overflow: hidden;
+}
+
+.hotw-card::before {
+    content: '🏆';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 8rem;
+    opacity: 0.1;
+}
+
+.hotw-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.hotw-crown {
+    font-size: 2rem;
+}
+
+.hotw-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--accent-ice);
+}
+
+.hotw-house {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.hotw-reason {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Standings Grid */
+.standings-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 1000px) {
+    .standings-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .standings-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.rank-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.rank-badge.rank-1 {
+    background: linear-gradient(135deg, #ffd700, #ffec8b);
+    color: #8b6914;
+}
+
+.rank-badge.rank-2 {
+    background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+    color: #666;
+}
+
+.rank-badge.rank-3 {
+    background: linear-gradient(135deg, #cd7f32, #daa06d);
+    color: #5c3a21;
+}
+
+.rank-badge.rank-4 {
+    background: var(--bg-elevated);
+    color: var(--text-muted);
+}
+
+/* Events */
+.events-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.event-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+    display: flex;
+    gap: 1rem;
+    transition: all 0.2s;
+}
+
+.event-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.event-date-box {
+    background: var(--accent-ice);
+    color: white;
+    padding: 0.75rem;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 60px;
+}
+
+.event-date-day {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.event-date-month {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.event-info {
+    flex: 1;
+}
+
+.event-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.event-meta {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.event-points {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--accent-ice);
+}
+
+/* Results */
+.result-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.result-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.result-date {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.result-placements {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+
+.placement {
+    text-align: center;
+    padding: 0.75rem;
+    border-radius: 10px;
+    background: var(--bg-elevated);
+}
+
+.placement-position {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.placement-house {
+    font-size: 1.5rem;
+}
+
+.placement.first {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 236, 139, 0.1));
+}
+
+/* Awards/Badges */
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.badge-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+    display: flex;
+    gap: 1rem;
+    transition: all 0.2s;
+}
+
+.badge-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.badge-card.legendary {
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(167, 139, 250, 0.05));
+    border-color: rgba(147, 51, 234, 0.3);
+}
+
+.badge-emoji {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.badge-info {
+    flex: 1;
+}
+
+.badge-name {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.badge-category {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.badge-earned {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.badge-place {
+    font-size: 1.25rem;
+}
+
+/* House Profiles */
+.house-profile {
+    background: var(--bg-card);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.house-profile-header {
+    padding: 2rem;
+    color: white;
+    position: relative;
+}
+
+.house-profile-header.shackleton { background: linear-gradient(135deg, var(--shackleton-blue), var(--shackleton-light)); }
+.house-profile-header.wilson { background: linear-gradient(135deg, var(--wilson-green), var(--wilson-light)); }
+.house-profile-header.bowen { background: linear-gradient(135deg, var(--bowen-red), var(--bowen-light)); }
+.house-profile-header.scott { background: linear-gradient(135deg, var(--scott-yellow), var(--scott-light)); }
+
+.house-profile-icon {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.house-profile-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.house-profile-body {
+    padding: 1.5rem;
+}
+
+.trophy-cabinet {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.trophy-item {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    background: var(--bg-elevated);
+    border-radius: 10px;
+    cursor: help;
+}
+
+/* Heritage Page */
+.explorer-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.explorer-header {
+    padding: 1.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.explorer-header.shackleton { background: linear-gradient(135deg, var(--shackleton-blue), var(--shackleton-light)); }
+.explorer-header.wilson { background: linear-gradient(135deg, var(--wilson-green), var(--wilson-light)); }
+.explorer-header.bowen { background: linear-gradient(135deg, var(--bowen-red), var(--bowen-light)); }
+.explorer-header.scott { background: linear-gradient(135deg, var(--scott-yellow), var(--scott-light)); }
+
+.explorer-icon {
+    font-size: 3rem;
+}
+
+.explorer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.explorer-dates {
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.explorer-toggle {
+    margin-left: auto;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.explorer-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.explorer-content.expanded {
+    max-height: 1000px;
+}
+
+.explorer-body {
+    padding: 1.5rem;
+}
+
+.explorer-quote {
+    font-style: italic;
+    color: var(--text-muted);
+    padding: 1rem;
+    border-left: 3px solid var(--accent-ice);
+    margin-bottom: 1rem;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--accent-ice), var(--accent-aurora));
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    background: var(--accent-ice);
+    border-radius: 50%;
+    border: 3px solid var(--bg-card);
+}
+
+.timeline-item.highlight::before {
+    background: var(--accent-aurora);
+    box-shadow: 0 0 10px var(--accent-aurora);
+}
+
+.timeline-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--accent-ice);
+    margin-bottom: 0.25rem;
+}
+
+.timeline-title {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-description {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Leaderboard */
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.leaderboard-table th {
+    font-weight: 700;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.leaderboard-table tr:hover {
+    background: var(--bg-elevated);
+}
+
+.leaderboard-rank {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.leaderboard-house {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.leaderboard-house-icon {
+    font-size: 1.5rem;
+}
+
+/* Feed */
+.feed-container {
+    display: grid;
+    gap: 1rem;
+}
+
+.feed-item {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+}
+
+.feed-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.feed-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.feed-icon.shackleton { background: rgba(58, 123, 200, 0.15); }
+.feed-icon.wilson { background: rgba(45, 157, 95, 0.15); }
+.feed-icon.bowen { background: rgba(199, 56, 56, 0.15); }
+.feed-icon.scott { background: rgba(232, 184, 42, 0.15); }
+
+.feed-meta {
+    flex: 1;
+}
+
+.feed-type {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.feed-time {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.feed-content {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Spirit Points */
+.spirit-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: var(--bg-elevated);
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.spirit-house-icon {
+    font-size: 1.5rem;
+}
+
+.spirit-bar-track {
+    flex: 1;
+    height: 12px;
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.spirit-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.5s ease;
+}
+
+.spirit-bar-fill.shackleton { background: var(--shackleton-light); }
+.spirit-bar-fill.wilson { background: var(--wilson-light); }
+.spirit-bar-fill.bowen { background: var(--bowen-light); }
+.spirit-bar-fill.scott { background: var(--scott-light); }
+
+.spirit-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    min-width: 50px;
+    text-align: right;
+}
