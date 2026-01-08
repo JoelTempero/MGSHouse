@@ -8,62 +8,116 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            /* House Colors */
-            --shackleton-blue: #1e4a7c;
-            --shackleton-light: #3a7bc8;
-            --wilson-green: #1a5f3c;
-            --wilson-light: #2d9d5f;
-            --bowen-red: #8b1e1e;
-            --bowen-light: #c73838;
-            --scott-yellow: #c4960c;
-            --scott-light: #e8b82a;
+            /* House Colors - PUNCHY! */
+            --shackleton-blue: #0066ff;
+            --shackleton-light: #00a3ff;
+            --shackleton-glow: rgba(0, 163, 255, 0.4);
+            --wilson-green: #00cc66;
+            --wilson-light: #00ff88;
+            --wilson-glow: rgba(0, 255, 136, 0.4);
+            --bowen-red: #ff3366;
+            --bowen-light: #ff5588;
+            --bowen-glow: rgba(255, 51, 102, 0.4);
+            --scott-yellow: #ffcc00;
+            --scott-light: #ffdd44;
+            --scott-glow: rgba(255, 204, 0, 0.4);
             
-            /* Light Mode (Default) */
-            --bg-deep: #f8fafc;
-            --bg-dark: #f1f5f9;
+            /* Light Mode (Default) - VIBRANT */
+            --bg-deep: #fafbff;
+            --bg-dark: #f0f4ff;
             --bg-card: #ffffff;
-            --bg-elevated: #f8fafc;
-            --text-primary: #1e293b;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --accent-ice: #0284c7;
-            --accent-aurora: #7c3aed;
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --bg-elevated: #f8faff;
+            --bg-secondary: #eef2ff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #7a7a9a;
+            --border-color: #e0e4f0;
+            --accent-ice: #0066ff;
+            --accent-aurora: #9333ea;
+            --accent-pink: #ec4899;
+            --accent-orange: #f97316;
+            --accent-snow: #eef2ff;
+            --success: #00cc66;
+            --warning: #ffcc00;
+            --error: #ff3366;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.16);
+            --shadow-glow: 0 0 30px rgba(0, 102, 255, 0.3);
             
-            /* Gradients */
-            --gradient-ice: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #e0f2fe 100%);
-            --gradient-aurora: linear-gradient(180deg, rgba(124, 58, 237, 0.05) 0%, transparent 50%);
-            --aurora-1: rgba(30, 74, 124, 0.08);
-            --aurora-2: rgba(26, 95, 60, 0.06);
-            --aurora-3: rgba(139, 30, 30, 0.04);
-            --grid-color: rgba(2, 132, 199, 0.05);
+            /* Fun Gradients */
+            --gradient-funky: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f97316 100%);
+            --gradient-party: linear-gradient(135deg, #00cc66 0%, #0066ff 50%, #9333ea 100%);
+            --gradient-fire: linear-gradient(135deg, #ff3366 0%, #ffcc00 100%);
+            --gradient-ice: linear-gradient(135deg, #00a3ff 0%, #0066ff 100%);
+            --gradient-hero: linear-gradient(180deg, rgba(102, 126, 234, 0.15) 0%, transparent 60%);
+            --grid-color: rgba(0, 102, 255, 0.06);
         }
 
-        /* Dark Mode */
+        /* Dark Mode - NEON */
         [data-theme="dark"] {
-            --bg-deep: #0a0e14;
-            --bg-dark: #0f1419;
-            --bg-card: #151b23;
-            --bg-elevated: #1c242e;
-            --text-primary: #e6edf3;
-            --text-secondary: #8b949e;
-            --text-muted: #6e7681;
-            --border-color: #2d3741;
-            --accent-ice: #7dd3fc;
-            --accent-aurora: #a78bfa;
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.4);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.5);
+            --bg-deep: #0a0a1a;
+            --bg-dark: #12122a;
+            --bg-card: #1a1a3a;
+            --bg-elevated: #22224a;
+            --bg-secondary: #2a2a5a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0d0;
+            --text-muted: #8080a0;
+            --border-color: #3a3a6a;
+            --accent-ice: #00d4ff;
+            --accent-aurora: #bf6bff;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.6);
+            --shadow-glow: 0 0 40px rgba(0, 212, 255, 0.4);
             
-            --gradient-ice: linear-gradient(135deg, #0c1929 0%, #1a2f4a 50%, #0f1f33 100%);
-            --gradient-aurora: linear-gradient(180deg, rgba(167, 139, 250, 0.1) 0%, transparent 50%);
-            --aurora-1: rgba(30, 74, 124, 0.15);
-            --aurora-2: rgba(26, 95, 60, 0.12);
-            --aurora-3: rgba(139, 30, 30, 0.08);
-            --grid-color: rgba(125, 211, 252, 0.03);
+            --gradient-hero: linear-gradient(180deg, rgba(191, 107, 255, 0.2) 0%, transparent 60%);
+            --grid-color: rgba(0, 212, 255, 0.05);
+        }
+
+        /* ANIMATIONS - THE FUN STUFF! */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px var(--shackleton-glow); }
+            50% { box-shadow: 0 0 40px var(--shackleton-glow), 0 0 60px var(--shackleton-glow); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes bounce-in {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        @keyframes slide-up {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes party-bg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         * {
@@ -101,7 +155,7 @@
             50% { opacity: 0.7; }
         }
 
-        /* Grid Pattern Overlay */
+        /* Grid Pattern Overlay - Now more dynamic */
         .grid-overlay {
             position: fixed;
             top: 0;
@@ -111,7 +165,7 @@
             background-image: 
                 linear-gradient(var(--grid-color) 1px, transparent 1px),
                 linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-            background-size: 50px 50px;
+            background-size: 60px 60px;
             pointer-events: none;
             z-index: 1;
         }
@@ -122,16 +176,17 @@
             min-height: 100vh;
         }
 
-        /* Header */
+        /* Header - FUNKY! */
         .header {
-            background: var(--bg-card);
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 3px solid transparent;
+            border-image: var(--gradient-party) 1;
             padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
         }
 
         .header-content {
@@ -150,24 +205,24 @@
         }
 
         .theme-toggle {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: var(--bg-elevated);
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-funky);
+            border: none;
+            color: white;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
-            transition: all 0.3s;
+            font-size: 1.4rem;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: var(--shadow-md);
         }
 
         .theme-toggle:hover {
-            background: var(--accent-ice);
-            color: white;
-            border-color: var(--accent-ice);
+            transform: scale(1.15) rotate(15deg);
+            box-shadow: var(--shadow-glow);
         }
 
         .logo-section {
@@ -179,40 +234,42 @@
         }
 
         .logo-crest {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--accent-ice) 0%, var(--accent-aurora) 100%);
-            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            background: var(--gradient-party);
+            background-size: 200% 200%;
+            animation: party-bg 3s ease infinite;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Playfair Display', serif;
             font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--bg-deep);
-            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 1.3rem;
+            color: white;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: var(--shadow-md);
         }
 
         .logo-crest:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(125, 211, 252, 0.4);
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: var(--shadow-glow);
+            border-radius: 20px;
         }
 
         .logo-crest.clicked {
-            animation: pulse 0.3s ease;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1); }
+            animation: wiggle 0.3s ease;
         }
 
         .logo-text h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.6rem;
+            font-weight: 800;
             letter-spacing: -0.02em;
+            background: var(--gradient-party);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .logo-text span {
@@ -225,30 +282,40 @@
         .nav-tabs {
             display: flex;
             gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .nav-tab {
-            padding: 0.75rem 1.5rem;
-            background: transparent;
-            border: 1px solid transparent;
+            padding: 0.75rem 1.25rem;
+            background: var(--bg-elevated);
+            border: 2px solid var(--border-color);
             color: var(--text-secondary);
             font-family: 'Source Sans Pro', sans-serif;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s;
+            border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .nav-tab:hover {
-            color: var(--text-primary);
-            background: var(--bg-card);
+            color: white;
+            background: var(--accent-ice);
+            border-color: var(--accent-ice);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
         }
 
         .nav-tab.active {
-            color: var(--accent-ice);
-            background: rgba(125, 211, 252, 0.1);
-            border-color: rgba(125, 211, 252, 0.3);
+            color: white;
+            background: var(--gradient-party);
+            background-size: 200% 200%;
+            animation: party-bg 3s ease infinite;
+            border-color: transparent;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(147, 51, 234, 0.4);
         }
 
         /* Main Content */
@@ -260,28 +327,31 @@
 
         .page {
             display: none;
-            animation: fadeIn 0.4s ease;
+            animation: slide-up 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .page.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Dashboard Page */
+        /* Dashboard Page - PARTY MODE! */
         .dashboard-hero {
             text-align: center;
             margin-bottom: 3rem;
             padding: 3rem 2rem;
-            background: var(--gradient-ice);
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
+            background: var(--gradient-funky);
+            background-size: 300% 300%;
+            animation: party-bg 8s ease infinite;
+            border-radius: 30px;
+            border: none;
             position: relative;
             overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .dashboard-hero * {
+            color: white !important;
+            -webkit-text-fill-color: white !important;
         }
 
         .dashboard-hero::before {
@@ -291,14 +361,9 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M200 50 L220 100 L200 90 L180 100 Z' fill='rgba(125,211,252,0.05)'/%3E%3Cpath d='M100 150 L120 200 L100 190 L80 200 Z' fill='rgba(125,211,252,0.03)'/%3E%3Cpath d='M300 180 L320 230 L300 220 L280 230 Z' fill='rgba(125,211,252,0.04)'/%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='10' fill='rgba(255,255,255,0.1)'/%3E%3Ccircle cx='150' cy='100' r='15' fill='rgba(255,255,255,0.08)'/%3E%3Ccircle cx='300' cy='80' r='8' fill='rgba(255,255,255,0.12)'/%3E%3Ccircle cx='350' cy='200' r='12' fill='rgba(255,255,255,0.06)'/%3E%3Ccircle cx='100' cy='300' r='20' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E");
             pointer-events: none;
-            animation: snowfall 30s linear infinite;
-        }
-
-        @keyframes snowfall {
-            from { transform: translateY(-10%); }
-            to { transform: translateY(10%); }
+            animation: float 6s ease-in-out infinite;
         }
 
         .dashboard-hero h2 {
@@ -349,29 +414,30 @@
 
         .house-card {
             background: var(--bg-card);
-            border-radius: 16px;
+            border-radius: 24px;
             padding: 1.5rem;
-            border: 1px solid var(--border-color);
+            border: 3px solid var(--border-color);
             position: relative;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: var(--shadow-md);
         }
 
         .house-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) rotate(-1deg) scale(1.02);
             box-shadow: var(--shadow-lg);
+            border-color: var(--house-light);
         }
 
-        .house-card.shackleton { --house-color: var(--shackleton-blue); --house-light: var(--shackleton-light); }
-        .house-card.wilson { --house-color: var(--wilson-green); --house-light: var(--wilson-light); }
-        .house-card.bowen { --house-color: var(--bowen-red); --house-light: var(--bowen-light); }
-        .house-card.scott { --house-color: var(--scott-yellow); --house-light: var(--scott-light); }
+        .house-card.shackleton { --house-color: var(--shackleton-blue); --house-light: var(--shackleton-light); --house-glow: var(--shackleton-glow); }
+        .house-card.wilson { --house-color: var(--wilson-green); --house-light: var(--wilson-light); --house-glow: var(--wilson-glow); }
+        .house-card.bowen { --house-color: var(--bowen-red); --house-light: var(--bowen-light); --house-glow: var(--bowen-glow); }
+        .house-card.scott { --house-color: var(--scott-yellow); --house-light: var(--scott-light); --house-glow: var(--scott-glow); }
 
-        .house-card.shackleton:hover { box-shadow: var(--shadow-lg), 0 0 0 2px var(--shackleton-light); }
-        .house-card.wilson:hover { box-shadow: var(--shadow-lg), 0 0 0 2px var(--wilson-light); }
-        .house-card.bowen:hover { box-shadow: var(--shadow-lg), 0 0 0 2px var(--bowen-light); }
-        .house-card.scott:hover { box-shadow: var(--shadow-lg), 0 0 0 2px var(--scott-light); }
+        .house-card.shackleton:hover { box-shadow: 0 20px 40px var(--shackleton-glow), 0 0 0 3px var(--shackleton-light); }
+        .house-card.wilson:hover { box-shadow: 0 20px 40px var(--wilson-glow), 0 0 0 3px var(--wilson-light); }
+        .house-card.bowen:hover { box-shadow: 0 20px 40px var(--bowen-glow), 0 0 0 3px var(--bowen-light); }
+        .house-card.scott:hover { box-shadow: 0 20px 40px var(--scott-glow), 0 0 0 3px var(--scott-light); }
 
         .house-card::before {
             content: '';
@@ -379,51 +445,65 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--house-color), var(--house-light));
+            height: 6px;
+            background: linear-gradient(90deg, var(--house-color), var(--house-light), var(--house-color));
+            background-size: 200% 100%;
+            animation: shimmer 2s linear infinite;
         }
 
         .house-rank {
             position: absolute;
             top: 1rem;
             right: 1rem;
-            width: 36px;
-            height: 36px;
+            width: 44px;
+            height: 44px;
             background: var(--bg-elevated);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--house-light);
-            border: 2px solid var(--house-color);
-        }
-
-        .house-rank.first {
-            background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
-            color: #000;
-            border: none;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-        }
-
-        .house-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--house-color), var(--house-light));
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--house-light);
+            border: 3px solid var(--house-color);
+            transition: all 0.3s;
+        }
+
+        .house-card:hover .house-rank {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .house-rank.first {
+            background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+            color: #000;
+            border: none;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .house-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--house-color), var(--house-light));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
             margin-bottom: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px var(--house-glow);
+        }
+
+        .house-card:hover .house-icon {
+            transform: scale(1.1) rotate(-5deg);
         }
 
         .house-name {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: 800;
             margin-bottom: 0.25rem;
             display: flex;
             align-items: center;
@@ -439,10 +519,11 @@
 
         .house-points {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 3rem;
+            font-weight: 800;
             color: var(--house-light);
             margin-bottom: 0.25rem;
+            text-shadow: 0 2px 10px var(--house-glow);
         }
 
         .house-points-label {
@@ -457,7 +538,7 @@
             gap: 0.5rem;
             margin-top: 1rem;
             padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
+            border-top: 2px dashed var(--border-color);
         }
 
         .badge-count {
@@ -500,43 +581,59 @@
 
         .event-card {
             background: var(--bg-card);
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 1.5rem;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s;
-            box-shadow: var(--shadow-sm);
+            border: 3px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-party);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
         }
 
         .event-card:hover {
             border-color: var(--accent-ice);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg), 0 0 30px rgba(0, 102, 255, 0.2);
+            transform: translateY(-8px) rotate(-1deg);
         }
 
         .event-status {
             display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
             font-size: 0.75rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             margin-bottom: 1rem;
         }
 
         .event-status.upcoming {
-            background: rgba(125, 211, 252, 0.15);
-            color: var(--accent-ice);
+            background: var(--gradient-ice);
+            color: white;
+            animation: pulse-glow 2s ease-in-out infinite;
         }
 
         .event-status.completed {
-            background: rgba(45, 157, 95, 0.15);
-            color: var(--wilson-light);
+            background: linear-gradient(135deg, var(--wilson-green), var(--wilson-light));
+            color: white;
         }
 
         .event-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
@@ -557,24 +654,25 @@
         }
 
         .event-points {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.75rem 1rem;
-            background: var(--bg-elevated);
-            border-radius: 8px;
+            padding: 0.6rem 1.25rem;
+            background: var(--gradient-fire);
+            border-radius: 50px;
             font-size: 0.9rem;
+            font-weight: 700;
+            color: white;
         }
 
         .event-points strong {
-            color: var(--scott-light);
             font-family: 'JetBrains Mono', monospace;
         }
 
         .event-results {
             margin-top: 1rem;
             padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
+            border-top: 2px dashed var(--border-color);
         }
 
         .result-row {
@@ -658,92 +756,110 @@
 
         .badge-card {
             background: var(--bg-card);
-            border-radius: 12px;
+            border-radius: 20px;
             padding: 1.25rem;
             text-align: center;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s;
+            border: 3px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             position: relative;
+            cursor: pointer;
         }
 
         .badge-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-8px) scale(1.05) rotate(-2deg);
             border-color: var(--accent-aurora);
+            box-shadow: 0 15px 40px rgba(147, 51, 234, 0.3);
         }
 
         .badge-card.earned {
-            border-color: rgba(45, 157, 95, 0.5);
+            border-color: var(--wilson-light);
+            background: linear-gradient(135deg, rgba(0, 204, 102, 0.1) 0%, var(--bg-card) 100%);
         }
 
         .badge-icon-wrapper {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             margin: 0 auto 1rem;
-            border-radius: 50%;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 2.5rem;
             position: relative;
             background: var(--bg-elevated);
             border: 3px solid var(--border-color);
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .badge-card:hover .badge-icon-wrapper {
-            transform: scale(1.1);
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .badge-card[data-category="explorer"] .badge-icon-wrapper {
-            border-color: var(--wilson-green);
-            background: rgba(26, 95, 60, 0.1);
+            border-color: var(--wilson-light);
+            background: linear-gradient(135deg, rgba(0, 204, 102, 0.2), rgba(0, 255, 136, 0.1));
         }
 
         .badge-card[data-category="scholar"] .badge-icon-wrapper {
-            border-color: var(--shackleton-blue);
-            background: rgba(30, 74, 124, 0.1);
+            border-color: var(--shackleton-light);
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(0, 163, 255, 0.1));
         }
 
         .badge-card[data-category="performer"] .badge-icon-wrapper {
             border-color: var(--accent-aurora);
-            background: rgba(167, 139, 250, 0.1);
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(191, 107, 255, 0.1));
         }
 
         .badge-card[data-category="champion"] .badge-icon-wrapper {
-            border-color: var(--scott-yellow);
-            background: rgba(196, 150, 12, 0.1);
+            border-color: var(--scott-light);
+            background: linear-gradient(135deg, rgba(255, 204, 0, 0.2), rgba(255, 221, 68, 0.1));
         }
 
         .badge-card[data-category="disciple"] .badge-icon-wrapper {
-            border-color: var(--bowen-red);
-            background: rgba(139, 30, 30, 0.1);
+            border-color: var(--bowen-light);
+            background: linear-gradient(135deg, rgba(255, 51, 102, 0.2), rgba(255, 85, 136, 0.1));
         }
 
         .badge-card.legendary .badge-icon-wrapper {
-            border-color: #9b59b6;
-            background: linear-gradient(135deg, rgba(155, 89, 182, 0.2) 0%, rgba(255, 215, 0, 0.1) 100%);
-            box-shadow: 0 0 15px rgba(155, 89, 182, 0.3);
+            border: none;
+            background: linear-gradient(135deg, #9b59b6 0%, #ffd700 50%, #9b59b6 100%);
+            background-size: 200% 200%;
+            animation: party-bg 3s ease infinite;
+            box-shadow: 0 0 25px rgba(155, 89, 182, 0.5), 0 0 50px rgba(255, 215, 0, 0.3);
+        }
+
+        .badge-card.legendary:hover .badge-icon-wrapper {
+            animation: rainbow 2s linear infinite, party-bg 3s ease infinite;
         }
 
         /* House of the Week Card */
         .hotw-card {
-            background: var(--gradient-ice);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 2px solid var(--border-color);
+            background: var(--gradient-funky);
+            background-size: 300% 300%;
+            animation: party-bg 8s ease infinite;
+            border-radius: 30px;
+            padding: 2.5rem;
+            border: none;
             margin-bottom: 2rem;
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+
+        .hotw-card * {
+            color: white !important;
         }
 
         .hotw-card::before {
             content: '🏆';
             position: absolute;
-            top: -20px;
-            right: -20px;
-            font-size: 8rem;
-            opacity: 0.1;
+            top: -30px;
+            right: -30px;
+            font-size: 10rem;
+            opacity: 0.15;
+            animation: float 4s ease-in-out infinite;
         }
 
         .hotw-header {
@@ -2059,6 +2175,378 @@
             font-weight: 700;
             margin-left: auto;
         }
+
+        /* ===========================================
+           HERITAGE PAGE - ARTISTIC STORYTELLING
+           =========================================== */
+        
+        .heritage-hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -2rem -2rem 0 -2rem;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+
+        .heritage-hero-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 163, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.08) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .heritage-hero-content {
+            position: relative;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        .heritage-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            margin-bottom: 1.5rem;
+        }
+
+        .heritage-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .heritage-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+        }
+
+        .heritage-scroll-hint {
+            animation: float 2s ease-in-out infinite;
+        }
+
+        .heritage-scroll-hint span {
+            display: block;
+            font-size: 0.85rem;
+            opacity: 0.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .scroll-arrow {
+            font-size: 1.5rem;
+            animation: bounce-in 1s ease infinite;
+        }
+
+        /* Story Section */
+        .heritage-story-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #16213e 0%, var(--bg-deep) 100%);
+            margin: 0 -2rem;
+        }
+
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story-eyebrow {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--gradient-party);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+        }
+
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Explorer Showcase */
+        .explorer-showcase {
+            display: grid;
+            gap: 0;
+        }
+
+        .explorer-feature {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            margin: 0 -2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .explorer-feature::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.15;
+            background-size: 200px 200px;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .shackleton-bg { background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 50%, #0066ff 100%); }
+        .wilson-bg { background: linear-gradient(135deg, #0a2818 0%, #1a4d35 50%, #00cc66 100%); }
+        .bowen-bg { background: linear-gradient(135deg, #2a0a0a 0%, #5c1a1a 50%, #ff3366 100%); }
+        .scott-bg { background: linear-gradient(135deg, #2a2200 0%, #5c4a00 50%, #ffcc00 100%); }
+
+        .explorer-feature-content {
+            position: relative;
+            max-width: 600px;
+            text-align: center;
+            color: white;
+            z-index: 1;
+        }
+
+        .explorer-feature-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .explorer-feature-house {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .explorer-feature-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .explorer-feature-years {
+            font-size: 1rem;
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .explorer-feature-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.6;
+            margin: 0 0 1.5rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            border-left: 4px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .explorer-feature-values {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-tag {
+            padding: 0.4rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .explorer-feature-desc {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Visual Timeline */
+        .heritage-timeline-section {
+            padding: 6rem 2rem;
+            background: var(--bg-card);
+            margin: 0 -2rem;
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .timeline-eyebrow {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--bg-elevated);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 700;
+        }
+
+        .visual-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 3rem;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient-party);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -3rem;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--bg-card);
+            border: 4px solid var(--accent-ice);
+            border-radius: 50%;
+            transform: translateX(calc(-50% + 2px));
+        }
+
+        .timeline-dot.highlight {
+            background: var(--gradient-party);
+            border: none;
+            width: 24px;
+            height: 24px;
+            box-shadow: 0 0 20px var(--accent-aurora);
+        }
+
+        .timeline-year {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent-ice);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* Heritage Closing */
+        .heritage-closing {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-deep) 100%);
+            margin: 0 -2rem 0 -2rem;
+            text-align: center;
+        }
+
+        .closing-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .closing-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .closing-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .closing-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .house-icons-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .house-icon-large {
+            font-size: 3rem;
+            padding: 1rem;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .house-icon-large:hover {
+            transform: scale(1.2) rotate(-5deg);
+        }
+
+        .shackleton-glow { background: rgba(0, 102, 255, 0.2); box-shadow: 0 0 30px var(--shackleton-glow); }
+        .wilson-glow { background: rgba(0, 204, 102, 0.2); box-shadow: 0 0 30px var(--wilson-glow); }
+        .bowen-glow { background: rgba(255, 51, 102, 0.2); box-shadow: 0 0 30px var(--bowen-glow); }
+        .scott-glow { background: rgba(255, 204, 0, 0.2); box-shadow: 0 0 30px var(--scott-glow); }
 
         /* Community Page Styles */
         .community-grid {
@@ -3734,47 +4222,165 @@
         }
 
         .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            padding: 0.85rem 1.75rem;
+            border-radius: 50px;
             font-family: 'Source Sans Pro', sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent-ice) 0%, var(--accent-aurora) 100%);
-            color: var(--bg-deep);
+            background: var(--gradient-party);
+            background-size: 200% 200%;
+            animation: party-bg 3s ease infinite;
+            color: white;
+            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(125, 211, 252, 0.4);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(147, 51, 234, 0.5);
         }
 
         .btn-secondary {
             background: var(--bg-elevated);
             color: var(--text-primary);
-            border: 1px solid var(--border-color);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-ice);
+            color: white;
+            border-color: var(--accent-ice);
+            transform: translateY(-2px);
         }
 
         .btn-danger {
-            background: var(--bowen-red);
+            background: linear-gradient(135deg, var(--bowen-red), #ff6b6b);
+            color: white;
+            box-shadow: 0 4px 15px var(--bowen-glow);
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--bowen-glow);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+        }
+
+        /* Admin Panel - PROFESSIONAL BACKEND LOOK */
+        .admin-panel {
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            margin-top: 2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            display: none;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .admin-panel.active {
+            display: block;
+        }
+
+        .admin-header {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-header h3 {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #fff;
+        }
+
+        .admin-logout {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .admin-logout:hover {
+            background: rgba(255, 59, 102, 0.3);
+            border-color: #ff3b66;
+        }
+
+        .admin-tabs {
+            display: flex;
+            gap: 0.25rem;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.2);
+            overflow-x: auto;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .admin-tab {
+            padding: 0.75rem 1.25rem;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+            white-space: nowrap;
+            font-size: 0.85rem;
+        }
+
+        .admin-tab:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .admin-tab.active {
+            background: var(--accent-ice);
             color: white;
         }
 
+        .admin-content {
+            padding: 2rem;
+        }
+
+        .admin-section {
+            display: none;
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
         .admin-card {
-            background: var(--bg-card);
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
             padding: 1.5rem;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             margin-bottom: 1.5rem;
         }
 
         .admin-card h4 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 700;
             margin-bottom: 1rem;
+            color: #fff;
+            font-size: 1.1rem;
         }
 
         .admin-list-item {
@@ -3782,19 +4388,160 @@
             align-items: center;
             justify-content: space-between;
             padding: 1rem;
-            background: var(--bg-elevated);
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
             margin-bottom: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s;
+        }
+
+        .admin-list-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
         .admin-list-item-info h5 {
             font-weight: 600;
             margin-bottom: 0.25rem;
+            color: #fff;
         }
 
         .admin-list-item-info span {
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Admin Form Styling */
+        .admin-panel .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .admin-panel .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+        }
+
+        .admin-panel input,
+        .admin-panel select,
+        .admin-panel textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .admin-panel input:focus,
+        .admin-panel select:focus,
+        .admin-panel textarea:focus {
+            outline: none;
+            border-color: var(--accent-ice);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.2);
+        }
+
+        .admin-panel select option {
+            background: #1a1a2e;
+            color: #fff;
+        }
+
+        .admin-panel .btn-primary {
+            background: var(--accent-ice);
+            animation: none;
+        }
+
+        .admin-panel .btn-primary:hover {
+            background: #0077ff;
+        }
+
+        /* Badge Grid in Admin */
+        .admin-badge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            max-height: 500px;
+            overflow-y: auto;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+        }
+
+        .admin-badge-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .admin-badge-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-ice);
+            transform: translateY(-2px);
+        }
+
+        .admin-badge-item.awarded {
+            background: rgba(0, 204, 102, 0.15);
+            border-color: var(--wilson-light);
+        }
+
+        .admin-badge-item .badge-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-badge-item .badge-name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .admin-badge-item .badge-houses {
+            display: flex;
+            justify-content: center;
+            gap: 0.25rem;
+            margin-top: 0.5rem;
+        }
+
+        .admin-badge-item .badge-house-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .admin-filter-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .admin-filter-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .admin-filter-btn.active {
+            background: var(--accent-ice);
+            border-color: var(--accent-ice);
+            color: white;
         }
 
         .admin-list-actions {
@@ -4022,7 +4769,6 @@
                         <button class="nav-tab" data-page="awards">Awards</button>
                         <button class="nav-tab" data-page="houses">Houses</button>
                         <button class="nav-tab" data-page="heritage">Heritage</button>
-                        <button class="nav-tab" data-page="leaderboard">Leaderboard</button>
                         <button class="nav-tab" data-page="community">Community</button>
                         <button class="nav-tab" data-page="faith">Faith & Service</button>
                     </nav>
@@ -4037,7 +4783,7 @@
                 <div class="dashboard-hero">
                     <h2>🧭 The Race for Glory</h2>
                     <p>Four houses. One trophy. Who will claim Antarctic glory?</p>
-                    <span class="current-year">2025 Season</span>
+                    <span class="current-year">2026 Season</span>
                 </div>
 
                 <!-- House of the Week -->
@@ -4206,356 +4952,207 @@
             </div>
 
             <!-- Heritage Page -->
+            <!-- Heritage Page - Immersive Storytelling Experience -->
             <div class="page" id="page-heritage">
-                <div class="awards-header">
-                    <h2>🏔️ Our Antarctic Heritage</h2>
-                    <p>The house names honour explorers connected to Middleton Grange — where Scott, Shackleton, and Wilson stayed before their Antarctic expeditions.</p>
-                </div>
-
-                <!-- Explorer Stories -->
-                <div class="heritage-section">
-                    <div class="section-header">
-                        <div>
-                            <h3 class="section-title">⛵ The Explorers</h3>
-                            <p class="section-subtitle">Heroes of the Heroic Age of Antarctic Exploration</p>
-                        </div>
-                    </div>
-
-                    <div class="explorer-cards">
-                        <!-- Shackleton -->
-                        <div class="explorer-card shackleton">
-                            <div class="explorer-header">
-                                <div class="explorer-icon">🧊</div>
-                                <div class="explorer-title">
-                                    <h4>Sir Ernest Shackleton</h4>
-                                    <span class="explorer-dates">1874 – 1922</span>
-                                </div>
-                            </div>
-                            <div class="explorer-quote">
-                                "Difficulties are just things to overcome, after all."
-                            </div>
-                            <div class="explorer-content">
-                                <p><strong>The Boss</strong> — Born in Ireland, Shackleton became one of history's greatest leaders. His family motto, <em>"Fortitudine Vincimus"</em> (By Endurance We Conquer), became the name of his famous ship.</p>
-                                
-                                <div class="explorer-expeditions">
-                                    <div class="expedition">
-                                        <span class="expedition-date">1901-04</span>
-                                        <span class="expedition-name">Discovery Expedition</span>
-                                        <p>Joined Scott's first Antarctic expedition; reached 82°S with Scott and Wilson — the furthest south any human had traveled.</p>
-                                    </div>
-                                    <div class="expedition">
-                                        <span class="expedition-date">1907-09</span>
-                                        <span class="expedition-name">Nimrod Expedition</span>
-                                        <p>Led his own expedition to within 97 miles of the South Pole. Made the difficult decision to turn back to save his men's lives. Knighted upon return.</p>
-                                    </div>
-                                    <div class="expedition">
-                                        <span class="expedition-date">1914-17</span>
-                                        <span class="expedition-name">Endurance Expedition</span>
-                                        <p>The legendary survival story. When Endurance was crushed by ice, Shackleton led all 28 men to safety — including an 800-mile open boat journey to South Georgia. Not a single life was lost.</p>
-                                    </div>
-                                </div>
-
-                                <div class="explorer-legacy">
-                                    <h5>🏆 House Values: Endurance, Leadership, Resilience</h5>
-                                    <p>Shackleton House embodies the spirit of perseverance. When facing impossible odds, Shackleton never gave up on his men. His decision to turn back from the Pole — "Better a live donkey than a dead lion" — showed true leadership: valuing lives over glory.</p>
-                                </div>
-                            </div>
-                            <button class="explorer-toggle" onclick="toggleExplorer(this)">Read More ▼</button>
-                        </div>
-
-                        <!-- Scott -->
-                        <div class="explorer-card scott">
-                            <div class="explorer-header">
-                                <div class="explorer-icon">🧭</div>
-                                <div class="explorer-title">
-                                    <h4>Captain Robert Falcon Scott</h4>
-                                    <span class="explorer-dates">1868 – 1912</span>
-                                </div>
-                            </div>
-                            <div class="explorer-quote">
-                                "We took risks, we knew we took them; things have come out against us."
-                            </div>
-                            <div class="explorer-content">
-                                <p><strong>Scott of the Antarctic</strong> — A Royal Navy officer who led two expeditions to Antarctica. His tragic final journey made him a British national hero and symbol of courage against impossible odds.</p>
-                                
-                                <div class="explorer-expeditions">
-                                    <div class="expedition">
-                                        <span class="expedition-date">1901-04</span>
-                                        <span class="expedition-name">Discovery Expedition</span>
-                                        <p>Scott's first Antarctic command. Established base at McMurdo Sound and reached 82°17'S with Wilson and Shackleton — a new record. Major scientific discoveries made.</p>
-                                    </div>
-                                    <div class="expedition">
-                                        <span class="expedition-date">1910-13</span>
-                                        <span class="expedition-name">Terra Nova Expedition</span>
-                                        <p>The race to the Pole. Scott and four companions reached the South Pole on 17 January 1912 — only to find Amundsen had arrived 34 days earlier. All five perished on the return journey, just 11 miles from a supply depot.</p>
-                                    </div>
-                                </div>
-
-                                <div class="explorer-middleton">
-                                    <h5>🏠 The Middleton Connection</h5>
-                                    <p>Both the Discovery and Terra Nova expeditions used Lyttelton as their New Zealand base. The expedition members were guests at Middleton Grange, hosted by Sir Charles Bowen. Scott's cousin, Professor Robert J. Scott, had married Bowen's daughter Gertrude.</p>
-                                </div>
-
-                                <div class="explorer-legacy">
-                                    <h5>🏆 House Values: Courage, Science, Sacrifice</h5>
-                                    <p>Scott House represents the pursuit of knowledge and the courage to push boundaries. Even in their final days, the team continued collecting geological specimens — contributing to science until the very end.</p>
-                                </div>
-                            </div>
-                            <button class="explorer-toggle" onclick="toggleExplorer(this)">Read More ▼</button>
-                        </div>
-
-                        <!-- Wilson -->
-                        <div class="explorer-card wilson">
-                            <div class="explorer-header">
-                                <div class="explorer-icon">🎨</div>
-                                <div class="explorer-title">
-                                    <h4>Dr. Edward Adrian Wilson</h4>
-                                    <span class="explorer-dates">1872 – 1912</span>
-                                </div>
-                            </div>
-                            <div class="explorer-quote">
-                                "I believe he really is the finest character I ever met." — Captain Scott
-                            </div>
-                            <div class="explorer-content">
-                                <p><strong>Uncle Bill</strong> — A physician, naturalist, and artist whose beautiful watercolors documented Antarctica's landscapes and wildlife. Wilson was the heart and conscience of both Scott expeditions, respected by all for his wisdom and kindness.</p>
-                                
-                                <div class="explorer-expeditions">
-                                    <div class="expedition">
-                                        <span class="expedition-date">1901-04</span>
-                                        <span class="expedition-name">Discovery Expedition</span>
-                                        <p>Served as junior surgeon, zoologist, and expedition artist. Joined Scott and Shackleton on the record-breaking southern journey. His skills as mediator helped resolve tensions between Scott and Shackleton.</p>
-                                    </div>
-                                    <div class="expedition">
-                                        <span class="expedition-date">1911</span>
-                                        <span class="expedition-name">The Worst Journey in the World</span>
-                                        <p>Led a winter expedition to Cape Crozier to collect Emperor penguin eggs — enduring temperatures of -77°F (-60°C). This journey is considered one of the most brutal in exploration history.</p>
-                                    </div>
-                                    <div class="expedition">
-                                        <span class="expedition-date">1912</span>
-                                        <span class="expedition-name">The Polar Journey</span>
-                                        <p>As Chief of Scientific Staff, Wilson accompanied Scott to the South Pole. He died alongside Scott and Bowers in their tent, 11 miles from safety. When found, Scott's arm was extended across Wilson — his closest friend.</p>
-                                    </div>
-                                </div>
-
-                                <div class="explorer-legacy">
-                                    <h5>🏆 House Values: Creativity, Compassion, Excellence</h5>
-                                    <p>Wilson House celebrates the union of art and science. Wilson overcame tuberculosis to become an Antarctic explorer, combining his medical training with his passion for natural history and art. His paintings remain treasured scientific and artistic records.</p>
-                                </div>
-                            </div>
-                            <button class="explorer-toggle" onclick="toggleExplorer(this)">Read More ▼</button>
-                        </div>
-
-                        <!-- Bowen -->
-                        <div class="explorer-card bowen">
-                            <div class="explorer-header">
-                                <div class="explorer-icon">⛰️</div>
-                                <div class="explorer-title">
-                                    <h4>Sir Charles Christopher Bowen</h4>
-                                    <span class="explorer-dates">1830 – 1917</span>
-                                </div>
-                            </div>
-                            <div class="explorer-quote">
-                                "Education for all children, regardless of background."
-                            </div>
-                            <div class="explorer-content">
-                                <p><strong>Father of New Zealand Education</strong> — An Irish-born pioneer who arrived in Canterbury on the Charlotte Jane in 1850. Bowen became one of New Zealand's most influential statesmen and the owner of Middleton Grange — the historic property on which our school now stands.</p>
-                                
-                                <div class="explorer-expeditions">
-                                    <div class="expedition">
-                                        <span class="expedition-date">1850</span>
-                                        <span class="expedition-name">Canterbury Settlement</span>
-                                        <p>Arrived on the Charlotte Jane, one of the First Four Ships. Served as private secretary to John Robert Godley, founder of the Canterbury colony. Became a justice of the peace aged just 22.</p>
-                                    </div>
-                                    <div class="expedition">
-                                        <span class="expedition-date">1859-60</span>
-                                        <span class="expedition-name">Crossing the Andes</span>
-                                        <p>Traveled with Clements Markham (later President of the Royal Geographical Society) across the Andes Mountains. This adventure earned him fellowship of the Royal Geographical Society.</p>
-                                    </div>
-                                    <div class="expedition">
-                                        <span class="expedition-date">1877</span>
-                                        <span class="expedition-name">Education Act</span>
-                                        <p>As Minister of Justice, Bowen was the driving force behind the Education Act 1877 — establishing free, compulsory, secular primary education for all New Zealand children.</p>
-                                    </div>
-                                    <div class="expedition">
-                                        <span class="expedition-date">1901-12</span>
-                                        <span class="expedition-name">Host to Explorers</span>
-                                        <p>Through his brother-in-law Clements Markham (who planned Scott's expeditions), Bowen hosted members of both Antarctic expeditions at Middleton Grange before they departed for the ice.</p>
-                                    </div>
-                                </div>
-
-                                <div class="explorer-legacy">
-                                    <h5>🏆 House Values: Service, Education, Hospitality</h5>
-                                    <p>Bowen House honors our school's physical heritage. Sir Charles believed education should be available to everyone — a vision that lives on in our school today. Middleton Grange stands as a testament to his legacy of service and learning.</p>
-                                </div>
-                            </div>
-                            <button class="explorer-toggle" onclick="toggleExplorer(this)">Read More ▼</button>
+                
+                <!-- Hero Banner -->
+                <div class="heritage-hero">
+                    <div class="heritage-hero-bg"></div>
+                    <div class="heritage-hero-content">
+                        <span class="heritage-badge">EST. 1964</span>
+                        <h1 class="heritage-title">Our Antarctic<br>Heritage</h1>
+                        <p class="heritage-subtitle">Where the spirit of exploration lives on</p>
+                        <div class="heritage-scroll-hint">
+                            <span>Scroll to explore</span>
+                            <div class="scroll-arrow">↓</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Timeline -->
-                <div class="heritage-section">
-                    <div class="section-header">
-                        <div>
-                            <h3 class="section-title">📜 Historical Timeline</h3>
-                            <p class="section-subtitle">Key moments connecting Middleton Grange to Antarctic exploration</p>
+                <!-- The Story Intro -->
+                <div class="heritage-story-section">
+                    <div class="story-content">
+                        <span class="story-eyebrow">The Connection</span>
+                        <h2 class="story-headline">Before they conquered the ice,<br>they walked these grounds.</h2>
+                        <p class="story-text">In 1901 and 1910, members of the most famous Antarctic expeditions in history stayed at Middleton Grange as guests of Sir Charles Bowen. Scott, Shackleton, and Wilson — names that would become legend — prepared for their journeys to the unknown right here, where our school now stands.</p>
+                        <p class="story-text">Today, our four houses carry their legacy forward. Every competition, every challenge, every triumph echoes the courage of these remarkable explorers.</p>
+                    </div>
+                </div>
+
+                <!-- Explorer Showcase -->
+                <div class="explorer-showcase">
+                    
+                    <!-- Shackleton -->
+                    <div class="explorer-feature shackleton-bg">
+                        <div class="explorer-feature-content">
+                            <div class="explorer-feature-icon">🧊</div>
+                            <span class="explorer-feature-house">Shackleton House</span>
+                            <h2 class="explorer-feature-name">Sir Ernest Shackleton</h2>
+                            <p class="explorer-feature-years">1874 – 1922</p>
+                            <blockquote class="explorer-feature-quote">"Difficulties are just things to overcome, after all."</blockquote>
+                            <div class="explorer-feature-values">
+                                <span class="value-tag">Endurance</span>
+                                <span class="value-tag">Leadership</span>
+                                <span class="value-tag">Resilience</span>
+                            </div>
+                            <p class="explorer-feature-desc">Known as "The Boss," Shackleton led the legendary Endurance expedition. When his ship was crushed by ice, he guided all 28 men to safety across 800 miles of treacherous ocean. Not a single life was lost.</p>
                         </div>
                     </div>
 
-                    <div class="timeline-container">
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-date">Dec 1850</div>
-                                <div class="timeline-content">
-                                    <h5>🚢 Charlotte Jane Arrives</h5>
-                                    <p>The Bowen family arrives in Canterbury on one of the First Four Ships.</p>
-                                </div>
+                    <!-- Wilson -->
+                    <div class="explorer-feature wilson-bg">
+                        <div class="explorer-feature-content">
+                            <div class="explorer-feature-icon">🎨</div>
+                            <span class="explorer-feature-house">Wilson House</span>
+                            <h2 class="explorer-feature-name">Dr. Edward Wilson</h2>
+                            <p class="explorer-feature-years">1872 – 1912</p>
+                            <blockquote class="explorer-feature-quote">"The finest character I ever met."<br><span style="font-size: 0.8em; opacity: 0.7;">— Captain Scott</span></blockquote>
+                            <div class="explorer-feature-values">
+                                <span class="value-tag">Creativity</span>
+                                <span class="value-tag">Compassion</span>
+                                <span class="value-tag">Excellence</span>
                             </div>
-                            <div class="timeline-item">
-                                <div class="timeline-date">1861</div>
-                                <div class="timeline-content">
-                                    <h5>🏠 Middleton Grange Established</h5>
-                                    <p>Charles Bowen purchases the Middleton property and begins developing the estate.</p>
-                                </div>
+                            <p class="explorer-feature-desc">"Uncle Bill" was a physician, naturalist, and artist whose beautiful watercolours documented Antarctica. He led the "Worst Journey in the World" — a winter expedition in -60°C temperatures to collect Emperor penguin eggs.</p>
+                        </div>
+                    </div>
+
+                    <!-- Bowen -->
+                    <div class="explorer-feature bowen-bg">
+                        <div class="explorer-feature-content">
+                            <div class="explorer-feature-icon">⛰️</div>
+                            <span class="explorer-feature-house">Bowen House</span>
+                            <h2 class="explorer-feature-name">Sir Charles Bowen</h2>
+                            <p class="explorer-feature-years">1830 – 1917</p>
+                            <blockquote class="explorer-feature-quote">"Education for all children, regardless of background."</blockquote>
+                            <div class="explorer-feature-values">
+                                <span class="value-tag">Service</span>
+                                <span class="value-tag">Education</span>
+                                <span class="value-tag">Hospitality</span>
                             </div>
-                            <div class="timeline-item">
-                                <div class="timeline-date">1877</div>
-                                <div class="timeline-content">
-                                    <h5>📚 Education Act Passed</h5>
-                                    <p>Bowen's landmark legislation establishes free, compulsory education for all NZ children.</p>
-                                </div>
+                            <p class="explorer-feature-desc">The Father of New Zealand Education and owner of Middleton Grange. Bowen welcomed the Antarctic explorers to his home and championed free education for all children through the landmark 1877 Education Act.</p>
+                        </div>
+                    </div>
+
+                    <!-- Scott -->
+                    <div class="explorer-feature scott-bg">
+                        <div class="explorer-feature-content">
+                            <div class="explorer-feature-icon">🧭</div>
+                            <span class="explorer-feature-house">Scott House</span>
+                            <h2 class="explorer-feature-name">Captain Robert Scott</h2>
+                            <p class="explorer-feature-years">1868 – 1912</p>
+                            <blockquote class="explorer-feature-quote">"We took risks, we knew we took them; things have come out against us."</blockquote>
+                            <div class="explorer-feature-values">
+                                <span class="value-tag">Courage</span>
+                                <span class="value-tag">Science</span>
+                                <span class="value-tag">Sacrifice</span>
                             </div>
-                            <div class="timeline-item highlight">
-                                <div class="timeline-date">Nov 1901</div>
-                                <div class="timeline-content">
-                                    <h5>🧊 Discovery Expedition Visits</h5>
-                                    <p>Scott, Wilson, and Shackleton stay at Middleton Grange before departing for Antarctica.</p>
-                                </div>
+                            <p class="explorer-feature-desc">"Scott of the Antarctic" led two major expeditions to the frozen continent. His team reached the South Pole on 17 January 1912, only to find Amundsen had arrived first. They perished on the return journey, still collecting scientific specimens until the very end.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Section -->
+                <div class="heritage-timeline-section">
+                    <div class="timeline-header">
+                        <span class="timeline-eyebrow">Through the Years</span>
+                        <h2 class="timeline-title">Key Moments in Our History</h2>
+                    </div>
+                    
+                    <div class="visual-timeline">
+                        <div class="timeline-line"></div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">1850</div>
+                            <div class="timeline-content">
+                                <h4>The Bowens Arrive</h4>
+                                <p>Charles Bowen arrives in Canterbury on the Charlotte Jane, one of the First Four Ships.</p>
                             </div>
-                            <div class="timeline-item">
-                                <div class="timeline-date">Dec 1902</div>
-                                <div class="timeline-content">
-                                    <h5>🏔️ Furthest South Record</h5>
-                                    <p>Scott, Wilson, and Shackleton reach 82°17'S — further south than any human before.</p>
-                                </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">1901</div>
+                            <div class="timeline-content">
+                                <h4>Discovery Expedition Visits</h4>
+                                <p>Scott, Wilson, and Shackleton stay at Middleton Grange before departing for Antarctica.</p>
                             </div>
-                            <div class="timeline-item">
-                                <div class="timeline-date">Jan 1909</div>
-                                <div class="timeline-content">
-                                    <h5>❄️ Shackleton Turns Back</h5>
-                                    <p>97 miles from the Pole, Shackleton makes the brave decision to save his men's lives.</p>
-                                </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">1910</div>
+                            <div class="timeline-content">
+                                <h4>Terra Nova Expedition</h4>
+                                <p>Scott's polar party stays at Middleton Grange. They depart from Lyttelton on 29 November.</p>
                             </div>
-                            <div class="timeline-item highlight">
-                                <div class="timeline-date">Nov 1910</div>
-                                <div class="timeline-content">
-                                    <h5>⛵ Terra Nova Expedition Visits</h5>
-                                    <p>Scott's polar party stays at Middleton Grange. They depart from Lyttelton on 29 November.</p>
-                                </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot highlight"></div>
+                            <div class="timeline-year">1912</div>
+                            <div class="timeline-content">
+                                <h4>South Pole Reached</h4>
+                                <p>Scott, Wilson, and three companions reach the Pole — finding Amundsen had arrived 34 days earlier.</p>
                             </div>
-                            <div class="timeline-item">
-                                <div class="timeline-date">Jan 1912</div>
-                                <div class="timeline-content">
-                                    <h5>🏁 South Pole Reached</h5>
-                                    <p>Scott, Wilson, Oates, Bowers, and Evans reach the Pole — finding Amundsen arrived first.</p>
-                                </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">1914-16</div>
+                            <div class="timeline-content">
+                                <h4>Endurance Epic</h4>
+                                <p>Shackleton's ship is crushed by ice. He leads all 28 men to safety in one of history's greatest survival stories.</p>
                             </div>
-                            <div class="timeline-item">
-                                <div class="timeline-date">Mar 1912</div>
-                                <div class="timeline-content">
-                                    <h5>✝️ The Ultimate Sacrifice</h5>
-                                    <p>Scott, Wilson, and Bowers perish in their tent, just 11 miles from safety.</p>
-                                </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">1964</div>
+                            <div class="timeline-content">
+                                <h4>School Founded</h4>
+                                <p>Middleton Grange School is established on the historic property.</p>
                             </div>
-                            <div class="timeline-item">
-                                <div class="timeline-date">1914-16</div>
-                                <div class="timeline-content">
-                                    <h5>🚣 Endurance Epic</h5>
-                                    <p>Shackleton's ship is crushed by ice. He leads all 28 men to safety in one of history's greatest survival stories.</p>
-                                </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot highlight"></div>
+                            <div class="timeline-year">1967</div>
+                            <div class="timeline-content">
+                                <h4>House System Begins</h4>
+                                <p>Four houses created: Scott, Shackleton, Wilson, and Bowen — honouring the Antarctic heritage.</p>
                             </div>
-                            <div class="timeline-item">
-                                <div class="timeline-date">1917</div>
-                                <div class="timeline-content">
-                                    <h5>🕊️ Sir Charles Bowen Dies</h5>
-                                    <p>Bowen passes away at Middleton Grange, leaving a legacy of education and service.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item highlight">
-                                <div class="timeline-date">1964</div>
-                                <div class="timeline-content">
-                                    <h5>🏫 Middleton Grange School Founded</h5>
-                                    <p>The school is established on the historic Middleton Grange property.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item highlight">
-                                <div class="timeline-date">1967</div>
-                                <div class="timeline-content">
-                                    <h5>🏆 House System Established</h5>
-                                    <p>Four houses created: Scott, Shackleton, Wilson, and Bowen — honoring the property's Antarctic heritage.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-date">Mar 2022</div>
-                                <div class="timeline-content">
-                                    <h5>🔍 Endurance Found</h5>
-                                    <p>Shackleton's ship is discovered on the seafloor, 107 years after sinking — remarkably preserved.</p>
-                                </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">2022</div>
+                            <div class="timeline-content">
+                                <h4>Endurance Found</h4>
+                                <p>Shackleton's ship discovered on the seafloor, 107 years after sinking — remarkably preserved.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Record Book -->
-                <div class="heritage-section">
-                    <div class="section-header">
-                        <div>
-                            <h3 class="section-title">📖 House Competition Records</h3>
-                            <p class="section-subtitle">Historic achievements and all-time records</p>
+                <!-- Closing Statement -->
+                <div class="heritage-closing">
+                    <div class="closing-content">
+                        <div class="closing-icon">🏔️</div>
+                        <h2>The Legacy Lives On</h2>
+                        <p>Every time you compete for your house, you carry forward the spirit of these extraordinary explorers. Their courage, creativity, service, and sacrifice inspire us still.</p>
+                        <div class="house-icons-row">
+                            <span class="house-icon-large shackleton-glow">🧊</span>
+                            <span class="house-icon-large wilson-glow">🎨</span>
+                            <span class="house-icon-large bowen-glow">⛰️</span>
+                            <span class="house-icon-large scott-glow">🧭</span>
                         </div>
-                    </div>
-
-                    <div class="records-grid" id="recordsGrid">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
-
-                <!-- Significant Dates -->
-                <div class="heritage-section">
-                    <div class="section-header">
-                        <div>
-                            <h3 class="section-title">🎂 Anniversary Celebrations</h3>
-                            <p class="section-subtitle">Important dates in our heritage</p>
-                        </div>
-                    </div>
-
-                    <div class="anniversaries-grid" id="anniversariesGrid">
-                        <!-- Populated by JS -->
                     </div>
                 </div>
             </div>
+
 
             <!-- Leaderboard Page -->
-            <div class="page" id="page-leaderboard">
-                <div class="section-header">
-                    <div>
-                        <h3 class="section-title">📊 Full Leaderboard</h3>
-                        <p class="section-subtitle">Complete standings breakdown</p>
-                    </div>
-                </div>
-
-                <div class="leaderboard-table" id="leaderboardTable">
-                    <div class="leaderboard-row header">
-                        <span>Rank</span>
-                        <span>House</span>
-                        <span>Points</span>
-                        <span>Badges</span>
-                        <span>Events Won</span>
-                    </div>
-                    <!-- Populated by JS -->
-                </div>
-            </div>
-
             <!-- Community Page -->
             <div class="page" id="page-community">
                 <div class="section-header">
@@ -5050,32 +5647,49 @@
 
                 <div class="admin-section" id="admin-badges">
                     <div class="admin-card">
-                        <h4>Award Badge to House</h4>
-                        <form id="awardBadgeForm">
-                            <div class="form-group">
-                                <label>Select Badge</label>
-                                <select id="badgeSelect">
-                                    <option value="">Choose a badge...</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Award To</label>
-                                <select id="badgeHouse">
-                                    <option value="">Select house...</option>
-                                    <option value="shackleton">Shackleton</option>
-                                    <option value="wilson">Wilson</option>
-                                    <option value="bowen">Bowen</option>
-                                    <option value="scott">Scott</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Award Badge</button>
-                        </form>
-                    </div>
-
-                    <div class="admin-card">
-                        <h4>Recent Badge Awards</h4>
-                        <div id="recentBadgeAwards">
+                        <h4>🎖️ Badge Management</h4>
+                        <p style="color: rgba(255,255,255,0.6); margin-bottom: 1rem; font-size: 0.9rem;">Click a badge to award it to a house. Badges show which houses have earned them.</p>
+                        
+                        <div class="admin-badge-filters" style="margin-bottom: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button class="admin-filter-btn active" data-admin-filter="all">All</button>
+                            <button class="admin-filter-btn" data-admin-filter="explorer">🌍 Service</button>
+                            <button class="admin-filter-btn" data-admin-filter="scholar">📚 Academic</button>
+                            <button class="admin-filter-btn" data-admin-filter="performer">🎭 Arts</button>
+                            <button class="admin-filter-btn" data-admin-filter="champion">🏅 Sport</button>
+                            <button class="admin-filter-btn" data-admin-filter="disciple">✝️ Faith</button>
+                            <button class="admin-filter-btn" data-admin-filter="legendary">👑 Legendary</button>
+                        </div>
+                        
+                        <div class="admin-badge-grid" id="adminBadgeGrid">
                             <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Badge Award Modal -->
+                <div class="modal-overlay" id="badgeAwardModal">
+                    <div class="modal" style="background: #1a1a2e; color: white; border: 1px solid rgba(255,255,255,0.1);">
+                        <h3 id="badgeAwardTitle">Award Badge</h3>
+                        <div id="badgeAwardEmoji" style="font-size: 4rem; text-align: center; margin: 1rem 0;"></div>
+                        <p id="badgeAwardDesc" style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;"></p>
+                        
+                        <div class="badge-award-houses" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 1.5rem;">
+                            <button class="badge-house-btn" data-house="shackleton" style="padding: 1rem; border-radius: 12px; border: 2px solid var(--shackleton-light); background: rgba(0, 102, 255, 0.1); color: white; cursor: pointer; font-weight: 600;">
+                                🧊 Shackleton
+                            </button>
+                            <button class="badge-house-btn" data-house="wilson" style="padding: 1rem; border-radius: 12px; border: 2px solid var(--wilson-light); background: rgba(0, 204, 102, 0.1); color: white; cursor: pointer; font-weight: 600;">
+                                🎨 Wilson
+                            </button>
+                            <button class="badge-house-btn" data-house="bowen" style="padding: 1rem; border-radius: 12px; border: 2px solid var(--bowen-light); background: rgba(255, 51, 102, 0.1); color: white; cursor: pointer; font-weight: 600;">
+                                ⛰️ Bowen
+                            </button>
+                            <button class="badge-house-btn" data-house="scott" style="padding: 1rem; border-radius: 12px; border: 2px solid var(--scott-light); background: rgba(255, 204, 0, 0.1); color: white; cursor: pointer; font-weight: 600;">
+                                🧭 Scott
+                            </button>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="closeBadgeAwardModal()">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -5587,7 +6201,7 @@
         </main>
 
         <footer class="footer">
-            <p>MGS House Competition © 2025 | <a href="https://www.middleton.school.nz" target="_blank">Middleton Grange School</a></p>
+            <p>MGS House Competition © 2026 | <a href="https://www.middleton.school.nz" target="_blank">Middleton Grange School</a></p>
             <p style="margin-top: 0.5rem;">30 Acacia Ave, Upper Riccarton, Christchurch 8041, New Zealand</p>
             <p class="admin-login-link" style="margin-top: 0.75rem;"><a href="#" onclick="openAdminLogin(); return false;">Admin Login</a></p>
         </footer>
@@ -5622,112 +6236,211 @@
                     explorer: 'Sir Ernest Henry Shackleton',
                     icon: '🧊',
                     color: 'shackleton',
-                    points: 847,
-                    badgesEarned: 24,
-                    eventsWon: 5,
-                    streak: 3, // Consecutive first-place badge wins
+                    points: 1320,
+                    badgesEarned: 25,
+                    eventsWon: 6,
+                    streak: 3,
                     weeklyActivity: { badges: 4, events: 1, points: 78 },
-                    spiritPoints: 156
+                    spiritPoints: 195
                 },
                 wilson: {
                     name: 'Wilson',
                     explorer: 'Dr Edward Adrian Wilson',
                     icon: '🎨',
                     color: 'wilson',
-                    points: 792,
-                    badgesEarned: 22,
-                    eventsWon: 4,
-                    streak: 0,
+                    points: 1245,
+                    badgesEarned: 23,
+                    eventsWon: 5,
+                    streak: 2,
                     weeklyActivity: { badges: 2, events: 1, points: 45 },
-                    spiritPoints: 142
+                    spiritPoints: 180
                 },
                 bowen: {
                     name: 'Bowen',
                     explorer: 'Sir Charles Christopher Bowen',
                     icon: '⛰️',
                     color: 'bowen',
-                    points: 815,
-                    badgesEarned: 23,
+                    points: 1180,
+                    badgesEarned: 21,
                     eventsWon: 4,
-                    streak: 1,
+                    streak: 0,
                     weeklyActivity: { badges: 3, events: 0, points: 52 },
-                    spiritPoints: 168
+                    spiritPoints: 165
                 },
                 scott: {
                     name: 'Scott',
                     explorer: 'Captain Robert Falcon Scott',
                     icon: '🧭',
                     color: 'scott',
-                    points: 763,
-                    badgesEarned: 20,
+                    points: 1105,
+                    badgesEarned: 19,
                     eventsWon: 3,
                     streak: 0,
                     weeklyActivity: { badges: 5, events: 2, points: 95 },
-                    spiritPoints: 135
+                    spiritPoints: 150
                 }
             },
             events: [
+                // UPCOMING EVENTS (6 total)
                 {
                     id: 1,
-                    name: 'House Athletics Day',
-                    date: '2025-02-15',
-                    time: '09:00',
-                    description: 'Annual athletics competition featuring track and field events. All students participate in at least 2 events.',
-                    rules: 'Full PE uniform required. House colors encouraged. Be at the track by 8:45am.',
-                    points: 150,
+                    name: 'Athletics Day',
+                    date: '2026-03-20',
+                    time: '08:30',
+                    description: 'Track and field events',
+                    rules: 'Full PE uniform required. House colors encouraged.',
+                    points: 50,
                     status: 'upcoming'
                 },
                 {
                     id: 2,
-                    name: 'House Singing Competition',
-                    date: '2025-03-20',
-                    time: '13:30',
-                    description: 'Each house performs a unified song with choreography. Judged on harmony, creativity, and participation.',
-                    rules: 'All house members must participate. No backing tracks allowed. 5-minute maximum.',
-                    points: 100,
+                    name: 'House Singing',
+                    date: '2026-04-10',
+                    time: '13:00',
+                    description: 'Choral competition',
+                    rules: 'All house members must participate. 5-minute maximum.',
+                    points: 50,
                     status: 'upcoming'
                 },
                 {
                     id: 3,
-                    name: 'Cross Country',
-                    date: '2025-01-10',
-                    time: '10:00',
-                    description: 'The annual cross country race through the school grounds and surrounding area.',
-                    rules: 'Running shoes required. Water stations at 1km and 2km marks.',
-                    points: 120,
-                    status: 'completed',
-                    results: {
-                        '1st': 'shackleton',
-                        '2nd': 'bowen',
-                        '3rd': 'wilson',
-                        '4th': 'scott'
-                    }
+                    name: 'Quiz Night',
+                    date: '2026-03-05',
+                    time: '18:30',
+                    description: 'Battle of brains! General knowledge, pop culture, and more.',
+                    rules: 'Teams of 6 per house. No phones allowed.',
+                    points: 40,
+                    status: 'upcoming'
                 },
                 {
                     id: 4,
-                    name: 'Lip Sync Battle',
-                    date: '2024-12-05',
-                    time: '14:00',
-                    description: 'Creative lip sync performance competition. Houses battle for supremacy!',
-                    rules: 'Song must be school-appropriate. Costumes encouraged. 3-minute limit.',
-                    points: 80,
-                    status: 'completed',
-                    results: {
-                        '1st': 'wilson',
-                        '2nd': 'scott',
-                        '3rd': 'shackleton',
-                        '4th': 'bowen'
-                    }
+                    name: 'Swimming Carnival',
+                    date: '2026-02-27',
+                    time: '09:00',
+                    description: 'Make a splash! Races, relays, and fun events.',
+                    rules: 'House swim caps provided. Bring towel and sunscreen.',
+                    points: 50,
+                    status: 'upcoming'
                 },
                 {
                     id: 5,
-                    name: 'Kapa Haka Performance',
-                    date: '2025-04-15',
-                    time: '11:00',
-                    description: 'Traditional Māori performing arts competition. Houses showcase their cultural skills.',
-                    rules: 'Respectful performance expected. Traditional dress optional but encouraged.',
-                    points: 100,
+                    name: 'Dodgeball Tournament',
+                    date: '2026-03-14',
+                    time: '12:00',
+                    description: 'Dodge, duck, dip, dive and dodge! Elimination rounds.',
+                    rules: 'Gym gear required. Fair play rules in effect.',
+                    points: 30,
                     status: 'upcoming'
+                },
+                {
+                    id: 6,
+                    name: 'Talent Show',
+                    date: '2026-04-25',
+                    time: '19:00',
+                    description: 'Showcase your unique talents for house glory!',
+                    rules: 'Acts must be 3 minutes or less. Pre-approval required.',
+                    points: 40,
+                    status: 'upcoming'
+                },
+                // COMPLETED EVENTS (9 total - results)
+                {
+                    id: 7,
+                    name: 'Cross Country',
+                    date: '2026-02-14',
+                    time: '10:00',
+                    description: 'Annual cross country race through the school grounds.',
+                    rules: 'Running shoes required.',
+                    points: 50,
+                    status: 'completed',
+                    results: { '1st': 'shackleton', '2nd': 'bowen', '3rd': 'wilson', '4th': 'scott' }
+                },
+                {
+                    id: 8,
+                    name: 'Lip Sync Battle',
+                    date: '2026-02-07',
+                    time: '14:00',
+                    description: 'Creative lip sync performance competition.',
+                    rules: 'Song must be school-appropriate. 3-minute limit.',
+                    points: 40,
+                    status: 'completed',
+                    results: { '1st': 'wilson', '2nd': 'scott', '3rd': 'shackleton', '4th': 'bowen' }
+                },
+                {
+                    id: 9,
+                    name: 'Kapa Haka Performance',
+                    date: '2026-01-30',
+                    time: '11:00',
+                    description: 'Traditional Māori performing arts showcase.',
+                    rules: 'All members must learn and perform the haka.',
+                    points: 50,
+                    status: 'completed',
+                    results: { '1st': 'bowen', '2nd': 'shackleton', '3rd': 'scott', '4th': 'wilson' }
+                },
+                {
+                    id: 10,
+                    name: 'House Debate',
+                    date: '2026-01-23',
+                    time: '15:30',
+                    description: 'Formal debate competition on current issues.',
+                    rules: 'Two speakers per house. Topics drawn on the day.',
+                    points: 30,
+                    status: 'completed',
+                    results: { '1st': 'shackleton', '2nd': 'wilson', '3rd': 'bowen', '4th': 'scott' }
+                },
+                {
+                    id: 11,
+                    name: 'Art Exhibition',
+                    date: '2026-01-16',
+                    time: '16:00',
+                    description: 'Display of student artwork representing house themes.',
+                    rules: 'Minimum 5 entries per house. Any medium accepted.',
+                    points: 40,
+                    status: 'completed',
+                    results: { '1st': 'wilson', '2nd': 'bowen', '3rd': 'scott', '4th': 'shackleton' }
+                },
+                {
+                    id: 12,
+                    name: 'Chess Championship',
+                    date: '2025-12-10',
+                    time: '13:00',
+                    description: 'Strategic battle of the minds.',
+                    rules: 'Swiss tournament format. 15-minute games.',
+                    points: 30,
+                    status: 'completed',
+                    results: { '1st': 'scott', '2nd': 'shackleton', '3rd': 'wilson', '4th': 'bowen' }
+                },
+                {
+                    id: 13,
+                    name: 'Basketball 3v3',
+                    date: '2025-12-03',
+                    time: '12:00',
+                    description: 'Fast-paced half-court basketball tournament.',
+                    rules: 'Mixed teams. Games to 21 points.',
+                    points: 30,
+                    status: 'completed',
+                    results: { '1st': 'bowen', '2nd': 'wilson', '3rd': 'shackleton', '4th': 'scott' }
+                },
+                {
+                    id: 14,
+                    name: 'Science Fair',
+                    date: '2025-11-20',
+                    time: '10:00',
+                    description: 'Innovative science projects and experiments.',
+                    rules: 'Original research required. Display boards provided.',
+                    points: 40,
+                    status: 'completed',
+                    results: { '1st': 'shackleton', '2nd': 'scott', '3rd': 'bowen', '4th': 'wilson' }
+                },
+                {
+                    id: 15,
+                    name: 'Dance Off',
+                    date: '2025-11-08',
+                    time: '14:30',
+                    description: 'House dance crews battle for supremacy!',
+                    rules: 'Max 10 dancers per house. 4-minute routine.',
+                    points: 40,
+                    status: 'completed',
+                    results: { '1st': 'wilson', '2nd': 'shackleton', '3rd': 'scott', '4th': 'bowen' }
                 }
             ],
             badges: generateBadges(),
@@ -6954,10 +7667,120 @@
         }
 
         function populateBadgeSelect() {
-            const select = document.getElementById('badgeSelect');
-            select.innerHTML = '<option value="">Choose a badge...</option>' +
-                appData.badges.map(b => `<option value="${b.id}">${b.emoji} ${b.name} (${b.category})${b.legendary ? ' 👑' : ''}</option>`).join('');
+            // This is now replaced by renderAdminBadgeGrid
+            renderAdminBadgeGrid();
         }
+
+        // Admin Badge Grid
+        let selectedBadgeId = null;
+
+        function renderAdminBadgeGrid(filter = 'all') {
+            const container = document.getElementById('adminBadgeGrid');
+            if (!container) return;
+
+            let badges = appData.badges;
+            if (filter !== 'all') {
+                if (filter === 'legendary') {
+                    badges = badges.filter(b => b.legendary);
+                } else {
+                    badges = badges.filter(b => b.category === filter && !b.legendary);
+                }
+            }
+
+            container.innerHTML = badges.map(badge => {
+                const earnedHouses = Object.keys(badge.earnedBy);
+                const isAwarded = earnedHouses.length > 0;
+                
+                return `
+                    <div class="admin-badge-item ${isAwarded ? 'awarded' : ''}" onclick="openBadgeAwardModal(${badge.id})">
+                        <div class="badge-emoji">${badge.emoji}</div>
+                        <div class="badge-name">${badge.name}</div>
+                        ${isAwarded ? `
+                            <div class="badge-houses">
+                                ${earnedHouses.map(h => `<span class="badge-house-dot" style="background: var(--${h}-light);">${appData.houses[h].icon}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function openBadgeAwardModal(badgeId) {
+            selectedBadgeId = badgeId;
+            const badge = appData.badges.find(b => b.id === badgeId);
+            if (!badge) return;
+
+            document.getElementById('badgeAwardTitle').textContent = badge.name;
+            document.getElementById('badgeAwardEmoji').textContent = badge.emoji;
+            document.getElementById('badgeAwardDesc').textContent = badge.desc;
+            document.getElementById('badgeAwardModal').classList.add('active');
+
+            // Update house buttons to show which already have this badge
+            document.querySelectorAll('.badge-house-btn').forEach(btn => {
+                const house = btn.dataset.house;
+                if (badge.earnedBy[house]) {
+                    btn.disabled = true;
+                    btn.style.opacity = '0.5';
+                    btn.innerHTML = `${appData.houses[house].icon} ${appData.houses[house].name} ✓`;
+                } else {
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                    btn.innerHTML = `${appData.houses[house].icon} ${appData.houses[house].name}`;
+                }
+            });
+        }
+
+        function closeBadgeAwardModal() {
+            document.getElementById('badgeAwardModal').classList.remove('active');
+            selectedBadgeId = null;
+        }
+
+        // Handle badge house button clicks
+        document.querySelectorAll('.badge-house-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (!selectedBadgeId || btn.disabled) return;
+                
+                const house = btn.dataset.house;
+                const badge = appData.badges.find(b => b.id === selectedBadgeId);
+                
+                if (badge && house && !badge.earnedBy[house]) {
+                    const currentEarned = Object.keys(badge.earnedBy).length;
+                    badge.earnedBy[house] = currentEarned + 1;
+                    
+                    // Award points based on position
+                    const pointsMap = [10, 5, 2, 1];
+                    let basePoints = pointsMap[currentEarned] || 1;
+                    
+                    // Apply streak bonus if first place
+                    let streakBonus = 0;
+                    if (currentEarned === 0) {
+                        appData.houses[house].streak++;
+                        streakBonus = Math.round(basePoints * (getStreakBonus(appData.houses[house].streak) / 100));
+                    }
+                    
+                    const totalPoints = basePoints + streakBonus;
+                    appData.houses[house].points += totalPoints;
+                    appData.houses[house].badgesEarned++;
+                    appData.houses[house].weeklyActivity.badges++;
+                    appData.houses[house].weeklyActivity.points += totalPoints;
+
+                    closeBadgeAwardModal();
+                    renderAll();
+                    
+                    const streakMsg = streakBonus > 0 ? ` (includes +${streakBonus} streak bonus!)` : '';
+                    showToast(`${badge.emoji} ${badge.name} awarded to ${appData.houses[house].name}! +${totalPoints} pts${streakMsg}`, 'success');
+                }
+            });
+        });
+
+        // Admin badge filter buttons
+        document.querySelectorAll('.admin-filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.admin-filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderAdminBadgeGrid(btn.dataset.adminFilter);
+            });
+        });
 
         // =====================
         // ADMIN ACTIONS
@@ -7010,50 +7833,6 @@
                 e.target.reset();
                 renderAll();
                 showToast('Results recorded!', 'success');
-            }
-        });
-
-        document.getElementById('awardBadgeForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const badgeId = parseInt(document.getElementById('badgeSelect').value);
-            const house = document.getElementById('badgeHouse').value;
-
-            const badge = appData.badges.find(b => b.id === badgeId);
-            if (badge && house) {
-                const currentEarned = Object.keys(badge.earnedBy).length;
-                if (!badge.earnedBy[house]) {
-                    badge.earnedBy[house] = currentEarned + 1;
-                    
-                    // Award points based on position
-                    const pointsMap = [10, 5, 2, 1];
-                    let basePoints = pointsMap[currentEarned] || 1;
-                    
-                    // Apply streak bonus if first place
-                    let streakBonus = 0;
-                    if (currentEarned === 0) {
-                        // This house got first place - increase their streak
-                        appData.houses[house].streak++;
-                        streakBonus = Math.round(basePoints * (getStreakBonus(appData.houses[house].streak) / 100));
-                        
-                        // Reset other houses' streaks for this badge type (if they were on a streak)
-                        // In a real app, you'd track this per badge category
-                    }
-                    
-                    const totalPoints = basePoints + streakBonus;
-                    appData.houses[house].points += totalPoints;
-                    appData.houses[house].badgesEarned++;
-                    appData.houses[house].weeklyActivity.badges++;
-                    appData.houses[house].weeklyActivity.points += totalPoints;
-
-                    e.target.reset();
-                    renderAll();
-                    
-                    const streakMsg = streakBonus > 0 ? ` (includes +${streakBonus} streak bonus!)` : '';
-                    showToast(`Badge awarded to ${appData.houses[house].name}! +${totalPoints} pts${streakMsg}`, 'success');
-                } else {
-                    showToast('This house already has this badge!', 'error');
-                }
             }
         });
 
