@@ -1,0 +1,22 @@
+{
+  "name": "MGS House Competition",
+  "short_name": "MGS Houses",
+  "description": "Middleton Grange School House Competition - Track points, events, badges and more!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "lifestyle"],
+  "lang": "en-NZ",
+  "dir": "ltr"
+}
