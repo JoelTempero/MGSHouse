@@ -1,0 +1,131 @@
+/* ============================================================
+   Middleton Design Language — shared app token + component layer
+   Derived from the website. Loaded LAST so it wins over legacy CSS.
+   ============================================================ */
+:root {
+  --mg-bone:       #F5F0E6;
+  --mg-bone-2:     #EDE6D6;
+  --mg-ink:        #0F0B07;
+  --mg-ink-3:      #5A4F40;
+  --mg-oxblood:    #6E1B1B;
+  --mg-oxblood-dp: #451010;
+  --mg-surface:    #FFFFFF;
+
+  --mg-success: #3B6B47;
+  --mg-warning: #9A6B1E;
+  --mg-alert:   #7A2222;
+  --mg-info:    #3A5566;
+
+  --mg-serif: 'Cormorant Garamond', Georgia, serif;
+  --mg-sans:  'Inter Tight', -apple-system, system-ui, sans-serif;
+  --mg-mono:  'JetBrains Mono', ui-monospace, monospace;
+
+  --mg-r-card: 8px;
+  --mg-r-pill: 999px;
+  --mg-shadow: 0 1px 2px rgba(15,11,7,.06);
+  --mg-tap: 44px;
+}
+
+body {
+  background: var(--mg-bone);
+  color: var(--mg-ink);
+  font-family: var(--mg-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* App top bar */
+.mg-topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(61,13,13,.92);
+  color: var(--mg-bone);
+  position: sticky; top: 0; z-index: 50;
+}
+.mg-topbar .mg-mark {
+  font-family: var(--mg-serif); font-style: italic; font-size: 18px;
+  color: var(--mg-bone); text-decoration: none;
+}
+.mg-topbar .mg-topbar-action {
+  background: none; border: 0; color: var(--mg-bone);
+  font-size: 18px; min-width: var(--mg-tap); min-height: var(--mg-tap); cursor: pointer;
+}
+
+/* Bottom tab nav */
+.mg-tabs {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+  display: flex; justify-content: space-around;
+  background: var(--mg-surface); border-top: 1px solid #eee;
+  padding: 6px 4px env(safe-area-inset-bottom, 6px);
+}
+.mg-tab {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
+  background: none; border: 0; cursor: pointer;
+  font-family: var(--mg-sans); font-size: 11px; color: var(--mg-ink-3);
+  min-height: var(--mg-tap); padding: 6px 0;
+}
+.mg-tab .mg-tab-ico { font-size: 17px; line-height: 1; }
+.mg-tab.is-active { color: var(--mg-oxblood); }
+.mg-app-scroll { padding-bottom: 76px; } /* clear the fixed tab bar */
+
+/* Card */
+.mg-card {
+  background: var(--mg-surface); border-radius: var(--mg-r-card);
+  box-shadow: var(--mg-shadow); padding: 16px; margin: 12px 16px;
+}
+.mg-card-eyebrow {
+  font-family: var(--mg-mono); font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--mg-ink-3);
+}
+.mg-card-title {
+  font-family: var(--mg-serif); font-size: 18px; color: var(--mg-ink); margin: 6px 0 4px;
+}
+.mg-card-meta { font-family: var(--mg-sans); font-size: 13px; color: var(--mg-ink-3); }
+
+/* List row */
+.mg-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; min-height: var(--mg-tap);
+  background: var(--mg-surface); border-bottom: 1px solid #f0ece0;
+  color: var(--mg-ink); text-decoration: none;
+}
+.mg-row::before {
+  content: ''; width: 3px; align-self: stretch; border-radius: 2px;
+  background: var(--mg-oxblood); flex: 0 0 3px;
+}
+.mg-row-body { flex: 1; }
+.mg-row-title { font-family: var(--mg-sans); font-weight: 600; font-size: 15px; }
+.mg-row-meta  { font-family: var(--mg-sans); font-size: 12px; color: var(--mg-ink-3); }
+.mg-row-chev  { color: var(--mg-ink-3); }
+
+/* Buttons */
+.mg-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mg-sans); font-weight: 600; font-size: 14px;
+  padding: 12px 22px; border-radius: var(--mg-r-pill); cursor: pointer;
+  background: var(--mg-oxblood); color: #fff; border: 1px solid var(--mg-oxblood);
+  min-height: var(--mg-tap);
+}
+.mg-btn--ghost { background: transparent; color: var(--mg-ink); border-color: var(--mg-ink); }
+
+/* Status pill */
+.mg-pill {
+  font-family: var(--mg-sans); font-size: 12px; color: #fff;
+  padding: 4px 12px; border-radius: var(--mg-r-pill);
+}
+.mg-pill--ok    { background: var(--mg-success); }
+.mg-pill--warn  { background: var(--mg-warning); }
+.mg-pill--alert { background: var(--mg-alert); }
+.mg-pill--info  { background: var(--mg-info); }
+
+/* House component (House Comp only) */
+.mg-house { background: var(--mg-surface); border-radius: var(--mg-r-card); padding: 14px; }
+.mg-house-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.mg-house-dot { width: 14px; height: 14px; border-radius: 50%; }
+.mg-house-name { font-family: var(--mg-serif); font-size: 17px; color: var(--mg-ink); flex: 1; }
+.mg-house-val  { font-family: var(--mg-mono); font-size: 14px; color: var(--mg-ink-3); }
+.mg-house-bar  { height: 8px; border-radius: 4px; background: #eee; overflow: hidden; }
+.mg-house-bar > i { display: block; height: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+}
