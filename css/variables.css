@@ -14,22 +14,22 @@
     --scott-light: #e8b82a;
     
     /* Theme Colors - Light Mode (Default) */
-    --bg-primary: #f8fafc;
-    --bg-secondary: #e2e8f0;
-    --bg-card: #ffffff;
-    --bg-elevated: #f1f5f9;
-    --text-primary: #1e293b;
-    --text-secondary: #475569;
-    --text-muted: #94a3b8;
-    --border-color: #e2e8f0;
+    --bg-primary: #F5F0E6;
+    --bg-secondary: #EDE6D6;
+    --bg-card: #FFFFFF;
+    --bg-elevated: #FFFFFF;
+    --text-primary: #0F0B07;
+    --text-secondary: #5A4F40;
+    --text-muted: #9c9180;
+    --border-color: #e3dcc9;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    
+
     /* Accent Colors */
-    --accent-ice: #0284c7;
+    --accent-ice: #6E1B1B;
     --accent-aurora: #a78bfa;
-    --accent-snow: #f0f9ff;
+    --accent-snow: #F5F0E6;
     
     /* Status Colors */
     --success: #22c55e;

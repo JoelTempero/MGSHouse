@@ -47,13 +47,13 @@
 }
 
 .hotw-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 1.25rem;
     color: var(--accent-ice);
 }
 
 .hotw-house {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 2rem;
     font-weight: 700;
     margin: 0.5rem 0;
@@ -196,7 +196,7 @@
 }
 
 .result-name {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 1.25rem;
     font-weight: 700;
 }
@@ -315,7 +315,7 @@
 }
 
 .house-profile-name {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 2rem;
     font-weight: 700;
 }
@@ -367,7 +367,7 @@
 }
 
 .explorer-name {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 1.5rem;
     font-weight: 700;
 }
