@@ -4832,7 +4832,7 @@
                     </div>
                 </div>
                 <div class="header-right">
-                    <nav class="nav-tabs" id="mainNav">
+                    <nav class="nav-tabs" id="mainNav" style="display:none" aria-hidden="true">
                         <button class="nav-tab active" data-page="dashboard">Dashboard</button>
                         <button class="nav-tab" data-page="events">Events</button>
                         <button class="nav-tab" data-page="results">Results</button>
@@ -4842,8 +4842,8 @@
                         <button class="nav-tab" data-page="community">Community</button>
                         <button class="nav-tab" data-page="faith">Faith & Service</button>
                     </nav>
-                    <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">🌙</button>
-                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" style="display:none" aria-hidden="true">🌙</button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" style="display:none" aria-hidden="true">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -4852,7 +4852,7 @@
             </div>
         </header>
 
-        <main class="main-content">
+        <main class="main-content mg-app-scroll">
             <!-- Dashboard Page -->
             <div class="page active" id="page-dashboard">
                 <div class="dashboard-hero">
@@ -6273,7 +6273,29 @@
                     </div>
                 </div>
             </div>
+            <!-- More Page (heritage / community / faith + results / awards) -->
+            <div class="page" id="page-more">
+                <div class="section-header" style="padding: 24px 16px 12px;">
+                    <div>
+                        <h3 class="section-title">More</h3>
+                        <p class="section-subtitle">Additional sections of the House Competition</p>
+                    </div>
+                </div>
+                <a class="mg-row" href="#" data-go="results"><span class="mg-row-body"><span class="mg-row-title">Results</span></span><span class="mg-row-chev">›</span></a>
+                <a class="mg-row" href="#" data-go="awards"><span class="mg-row-body"><span class="mg-row-title">Awards</span></span><span class="mg-row-chev">›</span></a>
+                <a class="mg-row" href="#" data-go="heritage"><span class="mg-row-body"><span class="mg-row-title">Heritage</span></span><span class="mg-row-chev">›</span></a>
+                <a class="mg-row" href="#" data-go="community"><span class="mg-row-body"><span class="mg-row-title">Community</span></span><span class="mg-row-chev">›</span></a>
+                <a class="mg-row" href="#" data-go="faith"><span class="mg-row-body"><span class="mg-row-title">Faith &amp; Service</span></span><span class="mg-row-chev">›</span></a>
+            </div>
         </main>
+
+        <!-- 4-tab bottom bar -->
+        <nav class="mg-tabs" aria-label="Primary">
+            <button class="mg-tab is-active" data-tab="standings" type="button"><span class="mg-tab-ico">▲</span>Standings</button>
+            <button class="mg-tab"           data-tab="events"    type="button"><span class="mg-tab-ico">◷</span>Events</button>
+            <button class="mg-tab"           data-tab="houses"    type="button"><span class="mg-tab-ico">⌂</span>Houses</button>
+            <button class="mg-tab"           data-tab="more"      type="button"><span class="mg-tab-ico">⋯</span>More</button>
+        </nav>
 
         <footer class="footer">
             <p>MGS House Competition © 2026 | <a href="https://www.middleton.school.nz" target="_blank">Middleton Grange School</a></p>
@@ -6956,9 +6978,9 @@
             themeToggle.title = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
         }
 
-        // Check for saved theme or default to light
-        const savedTheme = localStorage.getItem('mgs-theme') || 'light';
-        setTheme(savedTheme);
+        // Demo: force light mode regardless of saved preference
+        localStorage.setItem('mgs-theme', 'light');
+        setTheme('light');
 
         themeToggle.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -7012,15 +7034,30 @@
         function showPage(pageName) {
             const navTabs = document.querySelectorAll('.nav-tab');
             const pages = document.querySelectorAll('.page');
-            
+
             navTabs.forEach(t => t.classList.remove('active'));
             const targetTab = document.querySelector(`.nav-tab[data-page="${pageName}"]`);
             if (targetTab) targetTab.classList.add('active');
-            
+
             pages.forEach(p => p.classList.remove('active'));
             const targetPage = document.getElementById(`page-${pageName}`);
             if (targetPage) targetPage.classList.add('active');
         }
+
+        // =====================
+        // 4-TAB BOTTOM BAR
+        // =====================
+        const MG_TAB_PAGES = { standings: 'dashboard', events: 'events', houses: 'houses', more: 'more' };
+        document.querySelectorAll('.mg-tab').forEach(t => {
+            t.addEventListener('click', () => {
+                document.querySelectorAll('.mg-tab').forEach(x => x.classList.toggle('is-active', x === t));
+                showPage(MG_TAB_PAGES[t.dataset.tab]);
+            });
+        });
+
+        // data-go links inside #page-more (and anywhere else)
+        document.querySelectorAll('[data-go]').forEach(a =>
+            a.addEventListener('click', e => { e.preventDefault(); showPage(a.dataset.go); }));
 
         // =====================
         // LOGO CLICK (Secret Admin Access)

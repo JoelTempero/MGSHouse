@@ -129,3 +129,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; }
 }
+
+/* demo: light only */
+#themeToggle, .theme-toggle { display: none !important; }
+html, body { color-scheme: light; }
